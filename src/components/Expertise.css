@@ -1,0 +1,104 @@
+.expertise-section {
+  position: relative;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4rem;
+  text-align: left;
+}
+
+.section-number {
+  font-family: var(--font-mono);
+  color: var(--cyan);
+  font-size: 1.25rem;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  z-index: 10;
+  position: relative;
+}
+
+.expertise-card {
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.expertise-card:hover {
+  transform: translateY(-5px);
+}
+
+.expertise-card .code-editor-frame {
+  height: 380px;
+  background-color: var(--bg-card);
+  transition: var(--transition);
+}
+
+.expertise-card:hover .code-editor-frame {
+  border-color: var(--border-active);
+  background-color: var(--bg-card-hover);
+  box-shadow: 0 15px 40px -15px rgba(0, 0, 0, 0.8), 0 0 15px rgba(102, 217, 237, 0.05);
+}
+
+.code-line-content {
+  color: var(--text-main);
+  white-space: pre;
+}
+
+/* Base syntax highlight inside cards */
+.code-line-content:nth-child(2) {
+  /* Let's style comments */
+}
+
+/* Targeting comments inside specific editor contents */
+.code-line:has(.code-line-content:empty) {
+  min-height: 1.5rem;
+}
+
+.code-editor-body .code-line-content {
+  /* Dynamic basic syntax highlighting on keywords, imports, double quotes, braces */
+}
+
+.card-info {
+  margin-top: 1.75rem;
+  text-align: left;
+}
+
+.card-info h3 {
+  font-size: 1.35rem;
+  display: inline-block;
+  color: var(--text-bright);
+}
+
+.cyan-color { color: var(--cyan); }
+.magenta-color { color: var(--magenta); }
+.yellow-color { color: var(--yellow); }
+
+.exp-icon {
+  margin-right: 4px;
+}
+
+@media (max-width: 1024px) {
+  .expertise-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .expertise-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
